@@ -15,6 +15,7 @@ This runbook shows how to:
 * `kubectl` configured for the target cluster
 * Access to the OKE worker node
 * A valid debug image, for example:
+  `docker.io/library/ubuntu:latest`
   `iad.ocir.io/okedev/e2e-tests/busybox`
 
 ## 1. Create a persistent debug pod
@@ -24,7 +25,7 @@ Use the node IP or node name. This creates a pod that stays alive until you dele
 ```bash
 kubectl debug node/10.0.10.42 \
   --profile=general \
-  --image=iad.ocir.io/okedev/e2e-tests/busybox \
+  --image=docker.io/library/ubuntu:latest \
   -- /bin/sh -c 'trap : TERM INT; sleep infinity & wait'
 ```
 
