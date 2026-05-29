@@ -137,6 +137,5 @@ kubectl delete pod node-debugger-10.0.10.42-xxxxx
 
 ## Notes
 
-* This is the most reliable way to keep the session available until you delete the pod.
 * If you use a fully interactive `kubectl debug -it ... -- /bin/sh` session instead, it only stays alive while that shell remains open.
 * If `kubectl debug` appears to hang after printing `Creating debugging pod...`, that usually means the pod was created successfully and the command is waiting because the container is intentionally kept running.
