@@ -50,7 +50,7 @@ ls /
 
 You are now operating on the worker node host.
 
-## 4. Fix the Python venv prerequisite if needed
+## 4. OPTIONAL: Fix the Python venv prerequisite if needed
 
 If `node-doctor.sh` fails with `ensurepip is not available` or `No module named pip`, install the matching venv package on the host.
 
@@ -98,7 +98,7 @@ find / -maxdepth 4 \
 
 ## 6. Copy the bundle or log to your local machine
 
-First confirm where the file exists. The output may be in the pod filesystem or on the host filesystem mounted at `/host`.
+First switch to a new terminal on your local machine. We will confirm where the file exists. The output may be in the pod filesystem or on the host filesystem mounted at `/host`.
 
 ```bash
 kubectl exec -it node-debugger-10.0.10.42-xxxxx -- sh -c 'ls -l /tmp /var/log/oke-node-doctor /host/tmp /host/var/log/oke-node-doctor'
@@ -119,8 +119,8 @@ If the bundle is on the host filesystem through the mount:
 kubectl exec -it node-debugger-10.0.10.42-xxxxx -- sh -c '
   oci os object put \
     -bn <bucket-name> \
-    --name oke-support-bundle-2026-05-29T15-32-42.tar \
-    --file /host/tmp/oke-support-bundle-2026-05-29T15-32-42.tar
+    --name oke-support-bundle-<date-time>.tar \
+    --file /host/tmp/oke-support-bundle-<date-time>.tar
 ```
 
 Fallback: If the debug pod does not have OCI CLI or credentials, copy the file locally first and then upload it from your machine.
