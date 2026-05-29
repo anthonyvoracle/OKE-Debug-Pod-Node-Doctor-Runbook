@@ -4,7 +4,7 @@ This runbook shows how to setup a debug pod on your OKE node and use it to grab 
 
 This runbook shows how to:
 
-1. Create a persistent debug pod on an OKE worker node
+1. Create a debug pod on an OKE worker node
 2. Enter the host namespace
 3. Run `node-doctor.sh`
 4. Copy the resulting bundle or log to your local machine or OCI Object Storage
@@ -17,7 +17,7 @@ This runbook shows how to:
 * A valid debug image, for example:
   `docker.io/library/ubuntu:latest`
 
-## 1. Create a persistent debug pod
+## 1. Create a debug pod (default is set to expire the pod after 30 minutes)
 
 Use the node IP or node name. This creates a pod that stays alive until you delete it, in this example, 10.0.10.42 is being used as an example private IP for the node.
 
@@ -25,7 +25,7 @@ Use the node IP or node name. This creates a pod that stays alive until you dele
 kubectl debug node/10.0.10.42 \
   --profile=general \
   --image=docker.io/library/ubuntu:latest \
-  -- /bin/sh -c 'trap : TERM INT; sleep infinity & wait'
+  -- /bin/sh -c 'trap : TERM INT; sleep 1800 & wait'
 ```
 
 ## 2. Attach to the debug pod
