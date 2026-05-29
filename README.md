@@ -16,7 +16,6 @@ This runbook shows how to:
 * Access to the OKE worker node
 * A valid debug image, for example:
   `docker.io/library/ubuntu:latest`
-  `iad.ocir.io/okedev/e2e-tests/busybox`
 
 ## 1. Create a persistent debug pod
 
