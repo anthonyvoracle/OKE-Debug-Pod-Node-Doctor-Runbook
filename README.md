@@ -28,15 +28,9 @@ kubectl debug node/10.0.10.42 \
   -- /bin/sh -c 'trap : TERM INT; sleep infinity & wait'
 ```
 
-Expected behavior:
-
-* `kubectl debug` may stay attached after printing `Creating debugging pod...`.
-* That is normal because the container is intentionally kept running.
-* Leave the pod running if you want to reconnect later.
-
 ## 2. Attach to the debug pod
 
-From a second terminal, find the pod name and exec into it.
+First find the pod name, then, exec into it.
 
 ```bash
 kubectl get pods | grep node-debugger-10.0.10.42
