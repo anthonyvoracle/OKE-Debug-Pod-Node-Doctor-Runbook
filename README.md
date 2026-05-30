@@ -17,7 +17,7 @@ This runbook shows how to:
 
 ## 1. Create a debug pod (default is set to expire the pod after 30 minutes)
 
-Use the node IP or node name. This creates a pod that stays alive until you delete it, in this example, 10.0.10.42 is being used as an example private IP for the node.
+Use the node IP or node name. In this example, 10.0.10.42 is being used as an example private IP for the node.
 
 ```bash
 kubectl debug node/10.0.10.42 \
