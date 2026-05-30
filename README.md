@@ -15,9 +15,9 @@ This runbook shows how to:
 * A valid debug image, for example:
   `docker.io/library/ubuntu:latest`
 
-## 1. Create a debug pod (default is set to expire the pod after 30 minutes)
+## 1. Create a debug pod 
 
-Use the node IP or node name. In this example, 10.0.10.42 is being used as an example private IP for the node.
+Use the node IP or node name. In this example, 10.0.10.42 is being used as an example private IP for the node. Default setting is to expire the pod after 30 minutes. 
 
 ```bash
 kubectl debug node/10.0.10.42 \
